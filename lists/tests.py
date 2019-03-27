@@ -40,6 +40,6 @@ class HomePageTest(TestCase):
         # And we want a <title> tag somewhere in the middle, with the words
         # "To-Do lists" in it—​because that’s what we specified in our functional test.
 
-        self.assertTrue(html.endswith('<html>'))
+        self.assertTrue(html.strip().endswith('</html>'))
         #   We want it to start with an <html> tag which gets closed
         #   at the end.
