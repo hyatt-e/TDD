@@ -53,4 +53,10 @@ class HomePageTest(TestCase):
         # .assertTemplateUsed is the test method Django TestCase class provides us.
         # it lets us check what template was used to render a response 
         # (NB - it will only work for responses that were retrieved by the test client)
+        
+    def test_can_save_a_POST_request(self):
+        response = self.client.post('/', data={"item_text": "A new list item"})
+        self.assertIn("A new list item", response.content.decode())
+        self.assertTemplateUsed(response, "home.html")
+        
           
